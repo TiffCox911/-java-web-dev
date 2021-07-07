@@ -124,9 +124,7 @@ public class JobData {
             } else if (job.getCoreCompetency().toString().toLowerCase().contains(value.toLowerCase())) {
                 jobs.add(job);
             }
-
         }
-
         return jobs;
     }
 
