@@ -33,7 +33,7 @@ public class SearchController extends TechJobsController {
         if(searchTerm == null ||searchTerm.equals("") || searchTerm.toLowerCase().equals("all")) {
             jobs = JobData.findAll();
         } else {
-            jobs = JobData.findByColumnAndValue(searchType, searchTerm, false);
+            jobs = JobData.findByColumnAndValue(searchType, searchTerm,false);
         }
 
         model.addAttribute("jobs", jobs);

@@ -31,10 +31,14 @@
             <td>
                 <p th:text="'ID: ' + ${job.id}">ID data not available</p>
                 <p th:text="'Name: ' + ${job.name}">Name data not available</p>
-                <a th:text="'Employer: ' + ${job.employer}" th:href="@{/list/jobs?column=employer&value=}+${job.employer}+@{&exactMatch=true}">Employer data not available</a><br>
-                <a th:text="'Location: ' + ${job.location}" th:href="@{/list/jobs?column=location&value=}+${job.location}+@{&exactMatch=true}">Location data not available</a><br>
-                <a th:text="'Position Type: ' + ${job.positionType}" th:href="@{/list/jobs?column=positionType&value=}+${job.positionType}+@{&exactMatch=true}">Position Type data not available</a><br>
-                <a th:text="'Skill: ' + ${job.coreCompetency}" th:href="@{/list/jobs?column=coreCompetency&value=}+${job.coreCompetency}+@{&exactMatch=true}">Skill data not available</a><br>
+                <a th:text="'Employer: ' + ${job.employer}" th:href="@{/list/jobs?column=employer&value=}+
+                ${job.employer}+@{&exactMatch=true}">Employer data not available</a><br>
+                <a th:text="'Location: ' + ${job.location}" th:href="@{/list/jobs?column=location&value=}+
+                ${job.location}+@{&exactMatch=true}">Location data not available</a><br>
+                <a th:text="'Position Type: ' + ${job.positionType}" th:href="@{/list/jobs?column=positionType&value=}
+                +${job.positionType}+@{&exactMatch=true}">Position Type data not available</a><br>
+                <a th:text="'Skill: ' + ${job.coreCompetency}" th:href="@{/list/jobs?column=coreCompetency&value=}
+                +${job.coreCompetency}+@{&exactMatch=true}">Skill data not available</a><br>
             </td>
         </tr>
     </table>
