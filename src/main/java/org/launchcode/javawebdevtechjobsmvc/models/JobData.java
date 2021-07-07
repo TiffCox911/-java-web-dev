@@ -49,7 +49,7 @@ public class JobData {
      * @param value Value of the field to search for.
      * @return List of all jobs matching the criteria.
      */
-    public static ArrayList<Job> findByColumnAndValue(String column, String value) {
+    public static ArrayList<Job> findByColumnAndValue(String column, String value,boolean exactMatch) {
 
         // load data, if not already loaded
         loadData();
@@ -68,8 +68,14 @@ public class JobData {
 
             String aValue = getFieldValue(job, column);
 
-            if (aValue != null && aValue.toLowerCase().contains(value.toLowerCase())) {
-                jobs.add(job);
+            if (exactMatch) {
+                if (aValue != null && aValue.toLowerCase().equals(value.toLowerCase())) {
+                    jobs.add(job);
+                }
+            } else {
+                if (aValue != null && aValue.toLowerCase().contains(value.toLowerCase())) {
+                    jobs.add(job);
+                }
             }
         }
 
@@ -228,4 +234,3 @@ public class JobData {
     }
 
 }
-

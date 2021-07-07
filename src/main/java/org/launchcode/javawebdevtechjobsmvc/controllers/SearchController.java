@@ -15,14 +15,30 @@ import static org.launchcode.javawebdevtechjobsmvc.controllers.ListController.co
  */
 @Controller
 @RequestMapping("search")
-public class SearchController {
+public class SearchController extends TechJobsController {
 
     @RequestMapping(value = "")
     public String search(Model model) {
         model.addAttribute("columns", columnChoices);
+        model.addAttribute("lastSearch", "all");
         return "search";
     }
 
     // TODO #3 - Create a handler to process a search request and render the updated search view.
 
+    @RequestMapping(value = "results")
+    public String displaySearchResults(Model model, @RequestParam String searchType,
+                                       @RequestParam String searchTerm) {
+        ArrayList<Job> jobs;
+        if(searchTerm == null ||searchTerm.equals("") || searchTerm.toLowerCase().equals("all")) {
+            jobs = JobData.findAll();
+        } else {
+            jobs = JobData.findByColumnAndValue(searchType, searchTerm, false);
+        }
+
+        model.addAttribute("jobs", jobs);
+        model.addAttribute("columns", columnChoices);
+        model.addAttribute("lastSearch", searchType);
+        return "search";
+    }
 }
